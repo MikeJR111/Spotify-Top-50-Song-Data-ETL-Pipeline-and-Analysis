@@ -95,7 +95,7 @@ I will use RandomForestClassifier and LogisticRegression to predict genre.
 
 The accuracy score was lower when the selected model was applied to the test data,  this could indicate that the model is overfitting the training data.
 
-Possible Solutions:
+### Possible Solutions:
 
 1. Collect more data: Having more data can help the model learn the underlying patterns better and reduce the impact of noise. In the dataset, many genre has no more than 5 tracks
 2. Simplify the model: Using a simpler model with fewer features or fewer parameters can reduce the risk of overfitting. I can also use regularization techniques, such as L1 or L2 regularization
