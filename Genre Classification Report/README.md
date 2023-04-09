@@ -1,5 +1,10 @@
 # Genre Classification Report
 
+### Objectives:
+
+Select Feature from the dataset and predict genre
+
+
 ### Columns:
 | Feature | Description |
 | --- | --- |
