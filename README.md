@@ -14,7 +14,19 @@
 9. **Documentation and Collaboration:** Document the ETL pipeline's design, implementation, and usage for easy understanding and maintenance.
 
 
+### Tasks will be done:
 
+1. re-create the data model
+
+2. change the database from RDS to redshift, and make the dashboard that automatically update once a day
+
+3. re-structure the repository, make it more prefessional
+
+### ETL pipeline problem encountered so far
+
+1. spotify modified their api, so I have to re-write few lines of code
+
+2. spotify removed some playlists, re-write the code using try except, so if the playlist is empty, continue the loop 
 
 
 
@@ -24,8 +36,6 @@
 ![image](https://user-images.githubusercontent.com/93886913/230753090-02821699-2266-405f-84bf-8bf1b4a92c97.png)
 
 ### Data Extracted from Spotify API
-
-## Dashboard
 
 | Column Name        | Description                     |
 |--------------------|---------------------------------|
@@ -61,6 +71,8 @@
 | tempo              | Tempo (BPM) of the track        |
 | duration_ms        | Duration of the track in milliseconds |
 | time_signature     | Time signature of the track     |
+
+## Dashboard
 
 <div class='tableauPlaceholder' id='viz1680359791067' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Sp&#47;SpotifyTracks_16803596672260&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></no
 
