@@ -1,6 +1,9 @@
 # Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis
 
 
+### ETL Pipeline flowchart:
+
+![image](https://user-images.githubusercontent.com/93886913/230753090-02821699-2266-405f-84bf-8bf1b4a92c97.png)
 
 
 
