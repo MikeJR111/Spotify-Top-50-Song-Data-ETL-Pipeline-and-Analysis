@@ -1,14 +1,7 @@
-CREATE DATABASE country_playist ;
-USE country_playist; 
+DROP DATABASE country_playlist; 
+CREATE DATABASE country_playlist ;
+USE country_playlist; 
 
-CREATE TABLE Album (
-  album_id VARCHAR(255) NOT NULL PRIMARY KEY,
-  album_name VARCHAR(255),
-  album_type VARCHAR(255),
-  album_tracks INT,
-  album_url VARCHAR(255),
-  album_release_date DATE
-);
 
 CREATE TABLE Artist (
   artist_id VARCHAR(255) NOT NULL ,
@@ -18,12 +11,21 @@ CREATE TABLE Artist (
   PRIMARY KEY (artist_id)
 );
 
+CREATE TABLE Album (
+  album_id VARCHAR(255) NOT NULL PRIMARY KEY,
+  artist_id VARCHAR(255),
+  album_name VARCHAR(255),
+  album_type VARCHAR(255),
+  album_tracks INT,
+  album_url VARCHAR(255),
+  album_release_date DATE,
+  FOREIGN KEY (artist_id) REFERENCES Artist(artist_id)
+);
 
 CREATE TABLE Track (
 	track_id VARCHAR(255)  NOT NULL,
 	album_id VARCHAR(255) NOT NULL,
 	artist_id VARCHAR(255) NOT NULL,
-	record_date DATE NOT NULL,
 	track_url VARCHAR(255),
 	danceability FLOAT,
 	energy FLOAT,
@@ -73,7 +75,7 @@ CREATE TABLE Playlist_Tracks (
     playlist_id VARCHAR(255) NOT NULL,
     track_id VARCHAR(255) ,
     record_date DATE,
-    PRIMARY KEY (playlist_id),
+    PRIMARY KEY (playlist_track_id),
     FOREIGN KEY (playlist_id) REFERENCES Playlist(playlist_id),
     FOREIGN KEY (track_id) REFERENCES Track(track_id)
 );
