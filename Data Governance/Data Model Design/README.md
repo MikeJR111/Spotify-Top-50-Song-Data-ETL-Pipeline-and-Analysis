@@ -47,4 +47,4 @@ Action: add playlist entity
 
 A playlist contains one or more tracks, and a track can belong to one or more playlist, now it is a composite entity. Therefore, I will create a bridge entity: Playlist_track_id\
 
-![image](https://user-images.githubusercontent.com/93886913/230893985-eb08d6b5-80a5-492c-9b7b-ecee95db23b8.png)
+![image](https://user-images.githubusercontent.com/93886913/230896268-f7a9715a-e137-4c15-8346-7775866dba6e.png)
