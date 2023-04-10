@@ -39,5 +39,12 @@ Artist popularity -> multivalued attribute
 
 ### Step7: Set constraint and add new entity based on case study
 
-No case study available, skip this part for now
+case: spotify has top songs playlist for country, all of these tracks are found from those playlists
 
+Action: add playlist entity
+
+![image](https://user-images.githubusercontent.com/93886913/230876226-268317ca-b376-4709-9f0e-434eb0720570.png)
+
+A playlist contains one or more tracks, and a track can belong to one or more playlist, now it is a composite entity. Therefore, I will create a bridge entity: Playlist_track_id\
+
+![image](https://user-images.githubusercontent.com/93886913/230876257-f610feb2-d305-4f04-bd99-024844d1fe8d.png)
