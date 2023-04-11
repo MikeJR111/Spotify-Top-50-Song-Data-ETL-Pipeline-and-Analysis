@@ -18,6 +18,8 @@ And this part of code shows that a track belongs to one album only, an album bel
  
 So the relationships:
 
+Note: I made a mistake here, the relationship between artist, track and ablum should be weak relationship, not strong relationship
+
 ![image](https://user-images.githubusercontent.com/93886913/230839588-f519dd3f-a337-4a83-8d6b-ce7ac2c19c0a.png)
 
 
