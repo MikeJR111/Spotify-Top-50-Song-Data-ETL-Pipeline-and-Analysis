@@ -14,7 +14,7 @@
 9. **Documentation and Collaboration:** Document the ETL pipeline's design, implementation, and usage for easy understanding and maintenance.
 
 
-### Tasks will be done:
+### Tasks will be done: (Currently 70% done)
 
 1. re-create the data model
 
