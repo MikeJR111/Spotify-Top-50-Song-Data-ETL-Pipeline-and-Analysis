@@ -108,7 +108,7 @@ you can use this script to play with the spotify API [API_test.ipynb](https://gi
 ![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/7a33f064-26cb-4414-a802-249df0b4347a)
 
 
-### About Database:
+## About Database:
 
 ### Relational database schema:
 
@@ -168,9 +168,72 @@ REGION 'ap-southeast-2';
 ```
 **Problem**: This loading is not automated, I am still working on this part. My objective is to use lambda function to automate this process. I will modify the SQL code as well, use left join to filter duplicate rows before insert data.
 
-## Dashboard
+## About Monitoring:
+I use AWS cloudwatch to monitor my ETL pipeline, if any part is failed, I will recevie an E-mail from AWS notification:
+![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/a93bcd46-bb34-4f39-81f9-6c871728a877)
+![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/0f90ae2d-0be6-4ad9-8bcb-03982ed81c0b)
+
+
+### Classification:
+[classification report](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/tree/update/Genre%20Classification%20Report)
+
+### Data Analysis：
+### Dashboard
 
 <div class='tableauPlaceholder' id='viz1680359791067' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Sp&#47;SpotifyTracks_16803596672260&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></no
 
   
-  Link:https://public.tableau.com/views/SpotifyTracks_16803596672260/Dashboard1?:language=zh-CN&publish=yes&:display_count=n&:origin=viz_share_link
+Link:https://public.tableau.com/views/SpotifyTracks_16803596672260/Dashboard1?:language=zh-CN&publish=yes&:display_count=n&:origin=viz_share_link
+    
+    
+
+### My other projects:
+    
+### PySpark Project: 
+    
+**Analyzing Trip Data:**
+    
+implement various solutions based on RDDs, SQL and Data Frames in PySpark for the given queries related to trip data analysis.
+    
+[Github Link](https://github.com/MikeJR111/pyspark-projects/tree/main/Analysing%20Trip%20Data)
+    
+### Data Wrangling Project: 
+    
+**Semi-Structured-Data-Manipulation:**
+
+Use Python to extract the data from the text file and transform the data into a required XML format.
+    
+[Github Link](https://github.com/MikeJR111/Data-Wrangling/tree/main/Semi-Structured-Data-Manipulation)
+    
+**Data Cleansing :**
+   
+write Python code to analyze dataset, find and fix the problems (dirty, missing and outlier) in the data.
+    
+[Github Link](https://github.com/MikeJR111/Data-Wrangling/tree/main/Data-Cleansing)
+    
+**Data Integration and Reshaping:**
+    
+Write Python code to integrate several datasets into one single schema and find and fix possible problems in the data.
+Enriching Datasets with Web Scarping.
+    
+[Github Link](https://github.com/MikeJR111/Data-Wrangling/tree/main/Semi-Structured-Data-Manipulation)
+
+### Data Modelling Project:
+    
+Create a conceptual model based on a case study
+
+[Github Link](https://github.com/MikeJR111/Data-Modelling-/tree/main/conceptual_model)
+
+Based on a case study, create a 3nf normalization form and build a logical data model
+
+[Github Link](https://github.com/MikeJR111/Data-Modelling-/tree/main/Normalisation%20and%20Logical%20Database%20Design)
+    
+Based on a case study and a given data model, use SQL query to manipulate the database:
+
+[Github Link](https://github.com/MikeJR111/Data-Modelling-/tree/main/Creating%2C%20Populating%20and%20Manipulating%20Database)    
+
+    
+### Docker Project:
+Build a web-based system. It will allow end-users to send an image to a web service hosted by Docker containers and receive a list of objects detected in their uploaded image. Then deploy the web service on Oracle Cloud instances. Modify the VPC that allows my local machine to send data using the client.
+
+[Github Link](https://github.com/MikeJR111/First-Docker-Practice)
