@@ -87,13 +87,13 @@ you can use this script to play with the spotify API [API_test.ipynb](https://gi
 
 ### Deploy Extraction Script on AWS Lambda
 
-#### layer setting
+### layer setting
 ![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/83c7a711-e925-4a62-aafa-7e1a8d911384)
 
-#### Triggers setting
+### Triggers setting
 ![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/4f770835-4349-4746-80b9-8ee6c3757ce4)
 
-#### Scripts:
+### Scripts:
 [Lambda_Spotify_data_extraction_and_transform.ipynb](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/blob/main/Data%20Governance/Lambda_Spotify_data_extraction.ipynb)
 
 ![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/871ae0a3-6c64-49c8-877a-2a7450078dc8)
@@ -108,11 +108,65 @@ you can use this script to play with the spotify API [API_test.ipynb](https://gi
 ![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/7a33f064-26cb-4414-a802-249df0b4347a)
 
 
-### Load into Redshift:
+### About Database:
 
-#### query to create database:
+### Relational database schema:
 
+How this relational databse is designed [click](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/tree/update/Data%20Governance/Data%20Model%20Design)
 
+![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/727ba521-bfbd-4f74-8647-a3a84ea0a786)
+
+### Star Schema
+![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/78c1addb-2ffe-4ec6-b94d-02eff5db0ac3)
+
+### Query to create the star schema database:
+[sql_queries.py](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/blob/update/Data%20Governance/sql_queries.py)
+
+Create database code
+```python
+import sys
+sys.path.insert(0, 'E:\\StuDY\\Keys')
+from db_credentials import *
+import redshift_connector
+from sql_queries import table_list, staging_table_list
+
+conn = redshift_connector.connect(
+    host = spotify_redshift_host, 
+    database = spotify_redshift_db,
+    user = spotify_redshift_user,
+    password = spotify_redshift_password
+
+)
+
+cursor = redshift_connector.Cursor = conn.cursor()
+
+#create tables
+for query in table_list:
+    cursor.execute(query)
+    print('Table created.') 
+conn.commit()   
+
+#create staging tables
+for query in staging_table_list:
+    cursor.execute(query)
+    print('Table created.') 
+conn.commit()  
+
+```
+
+### Load into redshift:
+SQL Code Example:
+
+```SQL
+COPY artist_dim
+FROM 's3://spotify-project-jr/transformed_data/artist/'
+IAM_ROLE 'YOUR IAM ROLE'
+DATEFORMAT 'auto'
+DELIMITER ','
+IGNOREHEADER 1
+REGION 'ap-southeast-2';
+```
+**Problem**: This loading is not automated, I am still working on this part. My objective is to use lambda function to automate this process. I will modify the SQL code as well, use left join to filter duplicate rows before insert data.
 
 ## Dashboard
 
