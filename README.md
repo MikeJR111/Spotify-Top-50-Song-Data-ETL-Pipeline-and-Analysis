@@ -1,39 +1,23 @@
 # Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis
 
+As a student with a deep interest in data science, I'm eager to apply both my academic learnings and personal self-study to undertake a personal project.
 
 ### Objectives of this project:
 
-1. **Data Extraction:** Efficiently extract relevant data from the Spotify API, ensuring scalability for large volumes of data.
+1. **Data Extraction:** Efficiently extract relevant data from the Spotify API.
 2. **Data Transformation:** Clean, normalize, and transform raw data into a suitable format for analysis, ensuring consistency and quality.
-3. **Data Integration:** Combine and integrate data from different Spotify API sources to create a comprehensive dataset.
-4. **Data Analysis:** Perform various analyses on the processed dataset to derive insights and actionable information.
-5. **Data Visualization:** Create clear and concise visualizations to effectively communicate data analysis results.
-6. **Data Storage:** Store processed and analyzed data in a suitable, scalable, secure, and maintainable storage solution.
-7. **Automation and Scheduling:** Automate the ETL pipeline to run periodically, with error handling, logging, and monitoring mechanisms.
-8. **Performance Optimization:** Continuously optimize the ETL pipeline for improved efficiency, scalability, and performance.
-9. **Documentation and Collaboration:** Document the ETL pipeline's design, implementation, and usage for easy understanding and maintenance.
-
-
-### Tasks will be done: (Currently 70% done)
-
-1. re-create the data model
-
-2. change the database from RDS to redshift, and make the dashboard that automatically update once a day
-
-3. re-structure the repository, make it more prefessional
-
-### ETL pipeline problem encountered so far
-
-1. spotify modified their api, so I have to re-write few lines of code
-
-2. spotify removed some playlists, re-write the code using try except, so if the playlist is empty, continue the loop 
+3. **Data Analysis:** Perform various analyses on the processed dataset to derive insights and actionable information.
+4. **Data Visualization:** Create clear and concise visualizations to effectively communicate data analysis results.
+5. **Data Storage:** Store processed and analyzed data in a suitable, scalable, secure, and maintainable storage solution.
+6. **Automation and Scheduling:** Automate the ETL pipeline to run periodically, with error handling, logging, and monitoring mechanisms.
 
 
 
 
-### ETL Pipeline flowchart:
 
-![image](https://user-images.githubusercontent.com/93886913/230753090-02821699-2266-405f-84bf-8bf1b4a92c97.png)
+### High Level Diagram:
+
+![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/cd5cab8e-ad4a-4c63-9bb6-edaf8d6ed563)
 
 ### Data Extracted from Spotify API
 
@@ -71,6 +55,64 @@
 | tempo              | Tempo (BPM) of the track        |
 | duration_ms        | Duration of the track in milliseconds |
 | time_signature     | Time signature of the track     |
+
+### About Extraction:
+
+## Spotify API, Python library spotipy:
+
+Spotipy is a lightweight Python library for the Spotify Web API. With Spotipy you get full access to all of the music data provided by the Spotify platform.
+
+Register a Spotify for developers to get the **SPOTIPY_CLIENT_ID** and **SPOTIPY_CLIENT_SECRET** environment variables. Then you can interact with spotipy like this: 
+
+```python
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
+
+client_credentials_manager = SpotifyClientCredentials(
+    client_id=CLIENT_ID, 
+    client_secret=CLIENT_SECRET
+)
+sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+```
+
+My objective is to extract countries' TOP 50 tracks playlist:
+```python
+# These countries were chosen based on their respective market shares in the Spotify platform.
+countries = ["United States", "India", "Brazil", "Mexico", "United Kingdom", "Germany", "Sweden"]
+sp.search(q=f'top 50 India', type='playlist')['playlists']
+```
+![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/b89e3d68-8601-47ac-bb30-7a29b28a3b98)
+
+you can use this script to play with the spotify API [API_test.ipynb](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/blob/main/Data%20Governance/api_test.ipynb)
+
+### Deploy Extraction Script on AWS Lambda
+
+#### layer setting
+![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/83c7a711-e925-4a62-aafa-7e1a8d911384)
+
+#### Triggers setting
+![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/4f770835-4349-4746-80b9-8ee6c3757ce4)
+
+#### Scripts:
+[Lambda_Spotify_data_extraction_and_transform.ipynb](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/blob/main/Data%20Governance/Lambda_Spotify_data_extraction.ipynb)
+
+![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/871ae0a3-6c64-49c8-877a-2a7450078dc8)
+
+
+### Data Extracted:
+![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/c2a7a883-be24-4546-9bab-d133559020e7)
+
+### Data Transformed:
+![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/99d7e165-5a9f-4fe7-8ed0-eb91af541db6)
+
+![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/7a33f064-26cb-4414-a802-249df0b4347a)
+
+
+### Load into Redshift:
+
+#### query to create database:
+
+
 
 ## Dashboard
 
