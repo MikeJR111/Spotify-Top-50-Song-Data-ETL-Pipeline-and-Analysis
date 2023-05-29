@@ -117,7 +117,9 @@ How this relational databse is designed [click](https://github.com/MikeJR111/Spo
 ![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/727ba521-bfbd-4f74-8647-a3a84ea0a786)
 
 ### Star Schema
-![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/78c1addb-2ffe-4ec6-b94d-02eff5db0ac3)
+
+For analyse track popularity 
+![image](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/assets/93886913/c91d0a70-c16d-48b7-b815-59a3fb9c0218)
 
 ### Query to create the star schema database:
 [sql_queries.py](https://github.com/MikeJR111/Spotify-Top-50-Song-Data-ETL-Pipeline-and-Analysis/blob/update/Data%20Governance/sql_queries.py)
